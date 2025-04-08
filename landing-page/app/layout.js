@@ -1,12 +1,12 @@
-import { Lexend_Deca } from "next/font/google";
+import { Tinos } from "next/font/google";
 
 import "./globals.css";
 
 import UiProvider from "@/providers/UiProvider";
 
-const lexendDeca = Lexend_Deca({
+const tino = Tinos({
   subsets: ["latin"],
-  weight: ["variable"],
+  weight: ["400", "700"],
 });
 
 export const metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lexendDeca.className} antialiased`}
+        className={`${tino.className} antialiased`}
         suppressHydrationWarning
       >
         <UiProvider>{children}</UiProvider>
