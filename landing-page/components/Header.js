@@ -8,7 +8,8 @@ export default function Header() {
         <div
           className="w-full h-full absolute z-10"
           style={{
-            background: "radial-gradient(circle, transparent 0%, #18171b 80%)",
+            background:
+              "radial-gradient(ellipse 60% 60% at center, transparent 0%, #18171b 80%)",
           }}
         ></div>
         <div className="flex flex-col gap-5">

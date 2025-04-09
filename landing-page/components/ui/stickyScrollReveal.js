@@ -7,7 +7,7 @@ const StickyScrollSection = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end 75%"],
+    offset: ["start start", "end 50%"],
   });
 
   const items = [
@@ -29,8 +29,8 @@ const StickyScrollSection = () => {
   ];
 
   return (
-    <div className="min-h-screen relative">
-      <div ref={containerRef} className="relative min-h-screen w-full">
+    <div className=" relative">
+      <div ref={containerRef} className="relative w-full">
         <div className="flex lg:flex-row flex-col 2xl:gap-20 items-start">
           {/* Sticky section - fixed position */}
           <div className="lg:sticky lg:top-20 lg:h-[380px] flex-1 pt-8">
