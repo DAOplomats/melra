@@ -3,8 +3,8 @@ import MainBlock from "./Header/MainBlock";
 
 export default function Header() {
   return (
-    <div className="h-screen w-screen flex items-center justify-center relative ">
-      <div className="flex gap-5 overflow-hidden h-full w-screen items-center justify-center relative">
+    <div className="h-screen w-screen flex items-center justify-center relative overflow-x-hidden ">
+      <div className="flex gap-5 overflow-hidden h-full items-center justify-center relative">
         <div
           className="w-full h-full absolute z-10"
           style={{

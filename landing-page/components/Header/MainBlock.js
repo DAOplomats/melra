@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 
 export default function MainBlock() {
   return (
-    <div className="border border-[var(--foreground)] rounded-lg p-5 flex flex-col z-10">
+    <div className="border border-[var(--foreground)] rounded-lg p-5 flex flex-col z-10 w-[350px]">
       <div className="flex items-baseline gap-2">
         <h1 className="text-5xl font-bold">Melra</h1>
         <p className="text-xl">/ˈmɛl.rə/</p>
