@@ -7,6 +7,7 @@ import UiProvider from "@/providers/UiProvider";
 const tino = Tinos({
   subsets: ["latin"],
   weight: ["400", "700"],
+  variable: "--font-tino",
 });
 
 export const metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${tino.className} antialiased overflow-x-hidden`}
+        className={`${tino.variable} antialiased overflow-x-hidden`}
         suppressHydrationWarning
       >
         <UiProvider>{children}</UiProvider>

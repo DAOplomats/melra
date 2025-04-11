@@ -27,6 +27,10 @@ module.exports = {
         foreground: "var(--foreground)",
       },
 
+      fontFamily: {
+        tino: ["var(--font-tino)"],
+      },
+
       animation: {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
