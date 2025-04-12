@@ -6,7 +6,7 @@ import { CheckCircle, Clock, ArrowRight } from "lucide-react";
 
 export default function Misc() {
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-6">
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mt-6">
       <Card className="lg:col-span-2 text-white shadow-sm border-[var(--foreground)] border p-2">
         <CardHeader className="flex flex-row items-center justify-between">
           <div>
@@ -85,7 +85,7 @@ export default function Misc() {
       </Card>
       <Card className="text-white shadow-none border border-[var(--foreground)] p-2">
         <CardHeader className="flex flex-col items-start">
-          <div className="text-2xl font-bold">Delegate to Melra AI</div>
+          <div className="text-2xl font-bold">Delegate to Melra</div>
           <p className=" text-muted-foreground ">
             Let Melra vote on your behalf
           </p>
@@ -93,7 +93,7 @@ export default function Misc() {
         <CardBody className="-mt-2">
           <div className="space-y-4">
             <div className="rounded-lg border border-[var(--foreground)] p-4">
-              <div className="font-medium">Why delegate to Melra AI?</div>
+              <div className="font-medium">Why delegate to Melra?</div>
               <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
                 <li>• Data-driven decision making</li>
                 <li>• Transparent reasoning for all votes</li>

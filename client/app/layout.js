@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${tino.variable} antialiased overflow-x-hidden`}
+        className={`${tino.variable} antialiased overflow-x-hidden font-tino`}
         suppressHydrationWarning
       >
         <UiProvider>{children}</UiProvider>
