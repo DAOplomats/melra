@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { Button } from "@heroui/react";
+import WalletCard from "../ui/WalletCard";
 
 export default function Navbar() {
   return (
@@ -28,13 +26,7 @@ export default function Navbar() {
           </Link>
         </nav>
         <div className="flex items-center gap-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-[var(--foreground)] border border-[var(--foreground)]"
-          >
-            Connect Wallet
-          </Button>
+          <WalletCard />
         </div>
       </div>
     </header>

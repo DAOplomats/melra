@@ -29,6 +29,7 @@ module.exports = {
 
       fontFamily: {
         tino: ["var(--font-tino)"],
+        inter: ["var(--font-inter)"],
       },
 
       animation: {

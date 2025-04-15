@@ -1,13 +1,16 @@
 "use client";
 
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import MelraProvider from "@/providers/MelraProvider";
+import WalletProvider from "@/providers/WalletProvider";
 
 export default function Layout({ children }) {
   return (
-    <div className={`flex flex-col min-h-screen ${inter.className}`}>
-      {children}
-    </div>
+    <MelraProvider>
+      <WalletProvider>
+        <div className={`flex flex-col min-h-screen font-inter`}>
+          {children}
+        </div>
+      </WalletProvider>
+    </MelraProvider>
   );
 }
