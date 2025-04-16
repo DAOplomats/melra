@@ -1,8 +1,11 @@
 "use client";
 
 import {
+  setDelegatorsCount,
   setIsInitializing,
   setMelraAddress,
+  setRecentActivities,
+  setRecentDelegations,
   setVp,
 } from "@/redux/slice/UserSlice";
 import axios from "axios";
@@ -57,6 +60,9 @@ export default function useInitialize() {
 
       if (address) {
         await loadVp(address);
+        await loadDelegatorsCount();
+        await loadDelegators();
+        await loadRecentActivities();
       }
     } catch (error) {
       console.error("Error initializing:", error);
@@ -66,9 +72,66 @@ export default function useInitialize() {
     }
   };
 
+  const loadDelegatorsCount = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/utils/delegators/count/arbitrum`
+      );
+
+      if (response.data.success) {
+        dispatch(setDelegatorsCount(response.data.count));
+      } else {
+        toast.error("Failed to load Delegators Count");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error loading Delegators Count:", error);
+      return null;
+    }
+  };
+
+  const loadDelegators = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/utils/delegators/recent/arbitrum/3`
+      );
+
+      if (response.data.success) {
+        dispatch(setRecentDelegations(response.data.delegations));
+      } else {
+        toast.error("Failed to load Delegators");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error loading Delegators:", error);
+      return null;
+    }
+  };
+
+  const loadRecentActivities = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/utils/activity/recent/arbitrum/3`
+      );
+
+      if (response.data.success) {
+        dispatch(setRecentActivities(response.data.activities));
+      } else {
+        toast.error("Failed to load Recent Activities");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error loading Recent Activities:", error);
+      return null;
+    }
+  };
+
   return {
     loadMelraAddress,
     loadVp,
     initialize,
+    loadDelegatorsCount,
+    loadDelegators,
+    loadRecentActivities,
   };
 }

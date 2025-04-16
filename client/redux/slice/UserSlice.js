@@ -9,6 +9,9 @@ const userSlice = createSlice({
     delegators: null,
     recentDelegators: null,
     isInitializing: true,
+    delegatorsCount: null,
+    recentDelegations: null,
+    recentActivities: null,
   },
 
   reducers: {
@@ -27,6 +30,15 @@ const userSlice = createSlice({
     setIsInitializing: (state, action) => {
       state.isInitializing = action.payload;
     },
+    setDelegatorsCount: (state, action) => {
+      state.delegatorsCount = action.payload;
+    },
+    setRecentDelegations: (state, action) => {
+      state.recentDelegations = action.payload;
+    },
+    setRecentActivities: (state, action) => {
+      state.recentActivities = action.payload;
+    },
   },
 });
 
@@ -36,6 +48,9 @@ export const {
   setDelegators,
   setRecentDelegators,
   setIsInitializing,
+  setDelegatorsCount,
+  setRecentDelegations,
+  setRecentActivities,
 } = userSlice.actions;
 
 export default userSlice.reducer;
