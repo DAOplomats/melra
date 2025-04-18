@@ -13,6 +13,7 @@
     "@privy-io/react-auth": "^2.9.1",
     "@privy-io/wagmi": "^1.0.3",
     "@reduxjs/toolkit": "^2.6.1",
+    "@snapshot-labs/snapshot.js": "^0.12.59",
     "@tanstack/react-query": "^5.74.3",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",

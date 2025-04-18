@@ -26,7 +26,7 @@ export default function ProposalList() {
         <Tab key="completed" title="Completed" className="py-6" />
       </Tabs>
 
-      <List />
+      <List tab={tab} />
     </>
   );
 }

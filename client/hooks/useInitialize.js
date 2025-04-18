@@ -6,6 +6,7 @@ import {
   setMelraAddress,
   setRecentActivities,
   setRecentDelegations,
+  setRecentProposals,
   setVp,
 } from "@/redux/slice/UserSlice";
 import axios from "axios";
@@ -63,6 +64,7 @@ export default function useInitialize() {
         await loadDelegatorsCount();
         await loadDelegators();
         await loadRecentActivities();
+        await loadRecentProposals();
       }
     } catch (error) {
       console.error("Error initializing:", error);
@@ -111,7 +113,7 @@ export default function useInitialize() {
   const loadRecentActivities = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/utils/activity/recent/arbitrum/3`
+        `${process.env.NEXT_PUBLIC_API_URL}/utils/activity/recent/arbitrum/7`
       );
 
       if (response.data.success) {
@@ -126,6 +128,25 @@ export default function useInitialize() {
     }
   };
 
+  const loadRecentProposals = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/proposal/recent/arbitrum/10/1`
+      );
+
+      if (response.data.success) {
+        dispatch(setRecentProposals(response.data.proposals));
+        return response.data.proposals;
+      } else {
+        toast.error("Failed to load Recent Proposals");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error loading Recent Proposals:", error);
+      return null;
+    }
+  };
+
   return {
     loadMelraAddress,
     loadVp,
@@ -133,5 +154,6 @@ export default function useInitialize() {
     loadDelegatorsCount,
     loadDelegators,
     loadRecentActivities,
+    loadRecentProposals,
   };
 }
