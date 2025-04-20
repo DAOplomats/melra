@@ -35,7 +35,13 @@ export default function Misc() {
             {recentProposals?.map((proposal, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 justify-between border-b border-[var(--foreground)] pb-4"
+                className="flex items-center gap-2 justify-between border-[var(--foreground)] pb-4"
+                style={{
+                  borderBottom:
+                    index === recentProposals.length - 1
+                      ? "none"
+                      : "1px solid var(--foreground)",
+                }}
               >
                 <div>
                   <div className="font-medium line-clamp-1">

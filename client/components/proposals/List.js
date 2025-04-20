@@ -1,9 +1,10 @@
 "use client";
-import { CheckCircle, Clock } from "lucide-react";
+import { CheckCircle, Clock, Vote } from "lucide-react";
 import Badge from "../ui/Badge";
 import { Button } from "@heroui/react";
 import { useSelector } from "react-redux";
 import { formatDistance } from "date-fns";
+import ViewReasoning from "./ViewReasoning";
 
 export function List({ tab }) {
   const recentProposals = useSelector((state) => state.user.recentProposals);
@@ -73,13 +74,12 @@ export function List({ tab }) {
                     " left"
                   : "Ended"}
               </div>
+              <div className="flex items-center gap-1">
+                <Vote className="h-4 w-4" />
+                <span className="capitalize">{proposal.platform}</span>
+              </div>
             </div>
-            <Button
-              className="text-black bg-[var(--foreground)]"
-              variant="outline"
-            >
-              View Reasoning
-            </Button>
+            <ViewReasoning proposal={proposal} />
           </div>
         </div>
       ))}

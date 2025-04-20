@@ -4,17 +4,16 @@ import {
   Activity,
   Bookmark,
   Clock,
+  GitPullRequestArrow,
   ThumbsDown,
   ThumbsUp,
   Users,
 } from "lucide-react";
-import Badge from "../ui/Badge";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 import { useSelector } from "react-redux";
 
 export function RecentActivity() {
   const recentActivities = useSelector((state) => state.user.recentActivities);
-  console.log(recentActivities);
 
   return (
     <Card className="text-white shadow-sm border-[var(--foreground)] border p-2 mt-6">
@@ -43,6 +42,10 @@ export function RecentActivity() {
 
                   {activity.tag === "Decision" && (
                     <Activity className="h-4 w-4" />
+                  )}
+
+                  {activity.tag === "Vote" && (
+                    <GitPullRequestArrow className="h-4 w-4" />
                   )}
                 </div>
                 <div className="flex-1">
@@ -82,6 +85,23 @@ export function RecentActivity() {
                       </span>
                       <p className="text-sm text-muted-foreground line-clamp-1">
                         Melra has decided to vote "
+                        {
+                          activity.metadata.choices[
+                            Number(activity.metadata.primaryDecision) - 1
+                          ]
+                        }
+                        "
+                      </p>
+                    </div>
+                  )}
+
+                  {activity.tag === "Vote" && (
+                    <div className="flex flex-col gap-1">
+                      <span className="font-medium">
+                        Voted on "{activity.metadata.title}"
+                      </span>
+                      <p className="text-sm text-muted-foreground line-clamp-1">
+                        Melra has voted "
                         {
                           activity.metadata.choices[
                             Number(activity.metadata.primaryDecision) - 1

@@ -7,6 +7,7 @@ import {
   setRecentActivities,
   setRecentDelegations,
   setRecentProposals,
+  setSnapshot,
   setVp,
 } from "@/redux/slice/UserSlice";
 import axios from "axios";
@@ -65,12 +66,37 @@ export default function useInitialize() {
         await loadDelegators();
         await loadRecentActivities();
         await loadRecentProposals();
+        await loadSnapshot();
       }
     } catch (error) {
       console.error("Error initializing:", error);
       toast.error("Failed to initialize");
     } finally {
       dispatch(setIsInitializing(false));
+    }
+  };
+
+  const loadSnapshot = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/snapshot/get/latest/arbitrum`
+      );
+
+      if (response.data.success) {
+        dispatch(
+          setSnapshot({
+            snapshot: response.data.snapshot,
+            feedback: response.data.feedback,
+            proposalCount: response.data.proposalCount,
+          })
+        );
+      } else {
+        toast.error("Failed to load Snapshot");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error loading Snapshot:", error);
+      return null;
     }
   };
 
@@ -155,5 +181,6 @@ export default function useInitialize() {
     loadDelegators,
     loadRecentActivities,
     loadRecentProposals,
+    loadSnapshot,
   };
 }

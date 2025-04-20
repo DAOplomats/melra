@@ -13,6 +13,7 @@ const userSlice = createSlice({
     recentDelegations: null,
     recentActivities: null,
     recentProposals: null,
+    snapshot: null,
   },
 
   reducers: {
@@ -43,6 +44,9 @@ const userSlice = createSlice({
     setRecentProposals: (state, action) => {
       state.recentProposals = action.payload;
     },
+    setSnapshot: (state, action) => {
+      state.snapshot = action.payload;
+    },
   },
 });
 
@@ -56,6 +60,7 @@ export const {
   setRecentDelegations,
   setRecentActivities,
   setRecentProposals,
+  setSnapshot,
 } = userSlice.actions;
 
 export default userSlice.reducer;
