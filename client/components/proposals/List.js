@@ -35,13 +35,9 @@ export function List({ tab }) {
                 ) : (
                   <Badge
                     variant="outline"
-                    className={
-                      proposal.result === "passed"
-                        ? "bg-green-50 text-green-700 hover:bg-green-50"
-                        : "bg-red-50 text-red-700 hover:bg-red-50"
-                    }
+                    className={"bg-blue-50 text-blue-700 hover:bg-blue-50"}
                   >
-                    {proposal.result === "passed" ? "Passed" : "Failed"}
+                    Ended
                   </Badge>
                 )}
               </div>

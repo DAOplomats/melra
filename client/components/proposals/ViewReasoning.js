@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import Badge from "../ui/Badge";
 import useSnapshot from "@/hooks/useSnapshot";
 import { formatDistance } from "date-fns";
+import useTally from "@/hooks/useTally";
 
 export default function ViewReasoning({ proposal }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,6 +31,7 @@ export default function ViewReasoning({ proposal }) {
   const [totalScore, setTotalScore] = useState(0);
   const [loading, setLoading] = useState(false);
   const { getScores } = useSnapshot();
+  const { getVotesTally } = useTally();
 
   useEffect(() => {
     if (!proposal) return;
@@ -52,6 +54,24 @@ export default function ViewReasoning({ proposal }) {
         }
       };
       fetchScores();
+    }
+
+    if (proposal.platform === "tally") {
+      const fetchVotesTally = async () => {
+        setLoading(true);
+        try {
+          const votesTally = await getVotesTally(proposal.id);
+          setScores(votesTally);
+          setTotalScore(
+            votesTally.scores.reduce((acc, score) => acc + score, 0)
+          );
+        } catch (error) {
+          console.error("Error fetching votes tally:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchVotesTally();
     }
   }, [isOpen]);
 
