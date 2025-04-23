@@ -199,7 +199,7 @@ export default function ViewReasoning({ proposal }) {
                           </div>
 
                           <div className="mt-3 italic opacity-60">
-                            {Date.now() - proposal.endDate * 1000 - 86400000 > 0
+                            {proposal.endDate * 1000 - 86400000 - Date.now() > 0
                               ? "Melra will vote on this proposal in " +
                                 formatDistance(
                                   Date.now() -

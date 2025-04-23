@@ -24,6 +24,12 @@ export default function Navbar() {
           >
             Delegate
           </Link>
+          <Link
+            href="/about"
+            className="text-sm font-medium text-muted-foreground"
+          >
+            About
+          </Link>
         </nav>
         <div className="flex items-center gap-2">
           <WalletCard />

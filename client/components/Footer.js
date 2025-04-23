@@ -3,8 +3,10 @@
 import { Heart, Mail } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <div className="mt-28 bg-[var(--block)] py-28">
       <div className="flex flex-col gap-10 sm:flex-row sm:items-center w-full justify-between container lg:px-32">
@@ -54,6 +56,7 @@ export default function Footer() {
             variant="outline"
             className=" text-base text-[var(--foreground)] border border-[var(--foreground)] rounded-none mt-7"
             size="sm"
+            onPress={() => router.push("/delegate")}
           >
             Delegate
           </Button>
@@ -61,8 +64,9 @@ export default function Footer() {
             variant="outline"
             className=" text-base text-[var(--foreground)] border border-[var(--foreground)] rounded-none mt-3"
             size="sm"
+            onPress={() => router.push("/dashboard")}
           >
-            Voting History
+            Dashboard
           </Button>
         </div>
       </div>

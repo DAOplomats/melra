@@ -25,8 +25,8 @@ export default function Stats() {
           <CardBody>
             <div className="text-2xl font-bold">{snapshot?.proposalCount}</div>
             <p className="text-xs text-muted-foreground">
-              + {snapshot?.proposalCount - snapshot?.snapshot?.totalProposals}{" "}
-              new proposals this week
+              {snapshot?.proposalCount - snapshot?.snapshot?.totalProposals} new
+              proposals this month
             </p>
           </CardBody>
         </Card>
@@ -80,7 +80,7 @@ export default function Stats() {
                 (delegatorsCount - snapshot?.snapshot?.delegatorsCount).toFixed(
                   0
                 )}{" "}
-              new delegators this week
+              new delegators this month
             </p>
           </CardBody>
         </Card>
