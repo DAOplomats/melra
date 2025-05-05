@@ -55,7 +55,7 @@ export default function Misc() {
                   {proposal.decisions[0].status === "decided" && (
                     <div className="flex items-center gap-1">
                       <CheckCircle className="h-4 w-4" />
-                      <span className="text-sm font-medium">
+                      <span className="text-sm font-medium truncate">
                         {
                           proposal.choices[
                             proposal.decisions[0].primaryDecision - 1

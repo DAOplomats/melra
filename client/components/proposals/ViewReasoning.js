@@ -202,9 +202,7 @@ export default function ViewReasoning({ proposal }) {
                             {proposal.endDate * 1000 - 86400000 - Date.now() > 0
                               ? "Melra will vote on this proposal in " +
                                 formatDistance(
-                                  Date.now() -
-                                    proposal.endDate * 1000 -
-                                    86400000,
+                                  proposal.endDate * 1000 - 86400000,
                                   Date.now()
                                 )
                               : proposal.decisions[0].executed === "executed"
